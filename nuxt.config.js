@@ -14,7 +14,29 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: '/mathquill.css' }
+    ],
+    script: [
+      {
+        src:
+          'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML',
+        async: true,
+        type: 'text/javascript'
+      },
+      {
+        type: 'text/x-mathjax-config',
+        innerHTML:
+          'MathJax.Hub.Config({tex2jax: { inlineMath: [["$", "$"]] },TeX: {extensions: ["mhchem.js"]},CommonHTML: {scale: 100}})'
+      },
+      {
+        src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'
+      },
+      { src: '/mathquill.min.js' },
+      { innerhtml: 'let MQ = MathQuill.getInterface(2)' }
+    ],
+    __dangerouslyDisableSanitizers: ['script']
   },
   /*
    ** Customize the progress-bar color

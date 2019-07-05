@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-  baseURL: `http://localhost:3002`,
+  baseURL: `http://my-json-server.typicode.com/momothepikachu/real-world-nuxt/`,
   withCredentials: false,
   headers: {
     Accept: 'application/json',
